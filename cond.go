@@ -8,7 +8,7 @@ import (
 	"fmt"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/youtube/vitess/go/vt/sqlparser"
+	"github.com/gunosy/mogi/sqlparser"
 )
 
 type cond interface {
