@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/youtube/vitess/go/vt/sqlparser"
+	"github.com/gunosy/mogi/sqlparser"
 )
 
 type insertCond struct {
