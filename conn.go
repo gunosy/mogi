@@ -5,6 +5,7 @@ import (
 	"sort"
 
 	"database/sql/driver"
+	"gopkg.in/go-pp/pp.v2"
 )
 
 type conn struct {
@@ -45,6 +46,7 @@ func (c *conn) Query(query string, args []driver.Value) (driver.Rows, error) {
 	if err != nil {
 		return nil, err
 	}
+	pp.Println(query)
 	for _, c := range c.stubs {
 		if c.matches(in) {
 			return c.rows(in)
