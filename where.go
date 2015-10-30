@@ -3,7 +3,6 @@ package mogi
 import (
 	"fmt"
 	"strings"
-	"gopkg.in/go-pp/pp.v2"
 )
 
 type whereCond struct {
@@ -25,12 +24,9 @@ func (wc whereCond) matches(in input) bool {
 		return false
 	}
 
-	pp.Println(vals, v)
-
 	// compare slices
 	if slice, ok := v.([]interface{}); ok {
 		for i, src := range slice {
-			pp.Println(i, src, equals(src, wc.v[i]))
 			if !equals(src, wc.v[i]) {
 				return false
 			}

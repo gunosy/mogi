@@ -9,7 +9,6 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 	"github.com/gunosy/mogi/sqlparser"
-	"gopkg.in/go-pp/pp.v2"
 )
 
 type cond interface {
@@ -22,7 +21,6 @@ type condchain []cond
 
 func (chain condchain) matches(in input) bool {
 	for _, c := range chain {
-		pp.Println(reflect.TypeOf(c).Name(), c.String(), c.matches(in))
 		if !c.matches(in) {
 			return false
 		}
