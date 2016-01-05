@@ -128,6 +128,7 @@ func (node *Union) Format(buf *TrackedBuffer) {
 // Insert represents an INSERT statement.
 type Insert struct {
 	Comments Comments
+	Ignore   string
 	Table    *TableName
 	Columns  Columns
 	Rows     InsertRows
@@ -135,8 +136,8 @@ type Insert struct {
 }
 
 func (node *Insert) Format(buf *TrackedBuffer) {
-	buf.Myprintf("insert %vinto %v%v %v%v",
-		node.Comments,
+	buf.Myprintf("insert %v%s into %v%v %v%v",
+		node.Comments, node.Ignore,
 		node.Table, node.Columns, node.Rows, node.OnDup)
 }
 
