@@ -620,7 +620,7 @@ func (*CaseExpr) IValExpr()   {}
 type StrVal []byte
 
 func (node StrVal) Format(buf *TrackedBuffer) {
-	s := sqltypes.MakeString([]byte(node))
+	s := sqltypes.NewVarBinary(string(node))
 	s.EncodeSQL(buf)
 }
 
