@@ -96,9 +96,9 @@ func AsInterface(node ValExpr) (interface{}, error) {
 	case ListArg:
 		return string(node), nil
 	case StrVal:
-		return sqltypes.MakeString(node), nil
+		return sqltypes.NewVarBinary(string(node)), nil
 	case NumVal:
-		n, err := sqltypes.BuildIntegral(string(node))
+		n, err := sqltypes.NewIntegral(string(node))
 		if err != nil {
 			return nil, fmt.Errorf("type mismatch: %s", err)
 		}

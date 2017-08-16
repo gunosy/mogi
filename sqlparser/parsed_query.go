@@ -90,7 +90,7 @@ func EncodeValue(buf *bytes.Buffer, value interface{}) error {
 			return err
 		}
 	default:
-		v, err := sqltypes.BuildValue(bindVal)
+		v, err := sqltypes.InterfaceToValue(bindVal)
 		if err != nil {
 			return err
 		}
